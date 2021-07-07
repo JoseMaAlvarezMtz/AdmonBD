@@ -8,3 +8,5 @@
 *.CopyComplete
 Backend/AdmonBD/.vs/AdmonBD/v16/.suo
 Backend/AdmonBD/.vs/AdmonBD/config/applicationhost.config
+Backend/AdmonBD/AdmonBD/obj/Debug/net5.0/AdmonBD.AssemblyInfo.cs
+Backend/AdmonBD/AdmonBD/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
