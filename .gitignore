@@ -1,0 +1,10 @@
+
+*.json
+*.dll
+*.exe
+*.pdb
+*.props
+*.cache
+*.CopyComplete
+Backend/AdmonBD/.vs/AdmonBD/v16/.suo
+Backend/AdmonBD/.vs/AdmonBD/config/applicationhost.config
