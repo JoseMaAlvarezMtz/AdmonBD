@@ -7,9 +7,9 @@ namespace AdmonBD.Models
 {
     public class Usuarios
     {
-        int IdUsuario { get; set; }
-        string Usuario { get; set; }
-        string Contrasena { get; set; }
+        public int IdUsuario { get; set; }
+        public string Usuario { get; set; }
+        public string Contrasena { get; set; }
 
     }
 }
