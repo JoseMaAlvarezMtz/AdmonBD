@@ -1,3 +1,52 @@
+#menu ul li a{
+display:block;
+color:white;
+text-decoration:none;
+padding:10px;
+font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#menu{
+background-color:#000;
+}
+
+#menu ul{
+list-style:none;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+#menu ul li{
+	display: inline-block;
+
+}
+
+#menu ul li a{
+color:white;
+padding:4px  25px;
+text-decoration:none;
+display:block;
+
+}
+
+#menu ul li a:hover{
+background-color:#086D14;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   background: url(fondo.png); 
   background-size: cover;
@@ -10,8 +59,8 @@ body {
 #materia{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 370px;
-	width: 1050px;
+	height: 300px;
+	width: 800px;
 	left: 35%;
 	top: 15%;
 	margin-top: -100px;
