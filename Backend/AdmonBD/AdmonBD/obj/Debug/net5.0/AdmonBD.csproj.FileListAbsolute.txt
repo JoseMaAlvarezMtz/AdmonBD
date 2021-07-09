@@ -27,3 +27,4 @@ C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\Ad
 C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\AdmonBD\obj\Debug\net5.0\ref\AdmonBD.dll
 C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\AdmonBD\obj\Debug\net5.0\AdmonBD.pdb
 C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\AdmonBD\obj\Debug\net5.0\AdmonBD.genruntimeconfig.cache
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\AdmonBD\bin\Debug\net5.0\DAL.dll
