@@ -50,17 +50,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaveMateria.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dia.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Distribucion.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
     <Compile Include="DistribucionDeMaterias.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DistribucionDeMaterias.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DistribucionDeMaterias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
     </Compile>
     <Compile Include="DistribucionDeMaterias.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DistribucionDeMaterias.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Grupo.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hora.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Materia.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanEstudios.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Salon.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Semestre.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>DistribucionDeMaterias.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DistribucionDeMaterias.edmx">
@@ -79,6 +114,12 @@
     <Content Include="DistribucionDeMaterias.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DistribucionDeMaterias.Context.cs</LastGenOutput>
+      <DependentUpon>DistribucionDeMaterias.edmx</DependentUpon>
+    </Content>
+    <Content Include="DistribucionDeMaterias.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DistribucionDeMaterias.edmx</DependentUpon>
+      <LastGenOutput>DistribucionDeMaterias.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
