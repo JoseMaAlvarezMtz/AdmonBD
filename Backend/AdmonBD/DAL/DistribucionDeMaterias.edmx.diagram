@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4df45c2f4a954cdc8a9d2603ca65aa65" Name="Diagram1">
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.ClaveMateria" Width="1.5" PointX="2.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Dia" Width="1.5" PointX="6.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Distribucion" Width="1.5" PointX="4.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Grupo" Width="1.5" PointX="1.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Hora" Width="1.5" PointX="1.875" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Materia" Width="1.5" PointX="2.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.PlanEstudios" Width="1.5" PointX="5.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Salon" Width="1.5" PointX="6.375" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Semestre" Width="1.5" PointX="6.375" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DistribucionDeMateriasModel.Usuarios" Width="1.5" PointX="8.625" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_ClaveMateria" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Dia" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Grupo" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Hora" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Materia" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Salon" ManuallyRouted="false" />
+        <AssociationConnector Association="DistribucionDeMateriasModel.fk_Distribucion_Semestre" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

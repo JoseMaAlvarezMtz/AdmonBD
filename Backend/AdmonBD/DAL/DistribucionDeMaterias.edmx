@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DistribucionDeMateriasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClaveMateria">
+          <Key>
+            <PropertyRef Name="Id_clavemateria" />
+          </Key>
+          <Property Name="Id_clavemateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_clave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="Id_dia" />
+          </Key>
+          <Property Name="Id_dia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clave_dia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Distribucion">
+          <Key>
+            <PropertyRef Name="Id_distribucion" />
+          </Key>
+          <Property Name="Id_distribucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_plan" Type="int" Nullable="false" />
+          <Property Name="Id_clavemateria" Type="int" Nullable="false" />
+          <Property Name="Id_materia" Type="int" Nullable="false" />
+          <Property Name="Id_grupo" Type="int" Nullable="false" />
+          <Property Name="Id_hora" Type="int" Nullable="false" />
+          <Property Name="Id_dia" Type="int" Nullable="false" />
+          <Property Name="Id_salon" Type="int" Nullable="false" />
+          <Property Name="Semestre" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="Id_grupo" />
+          </Key>
+          <Property Name="Id_grupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero_grupo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hora">
+          <Key>
+            <PropertyRef Name="Id_hora" />
+          </Key>
+          <Property Name="Id_hora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Hora" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hora_inicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Hora_fin" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="Id_materia" />
+          </Key>
+          <Property Name="Id_materia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_materia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PlanEstudios">
+          <Key>
+            <PropertyRef Name="Id_plan" />
+          </Key>
+          <Property Name="Id_plan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clave_plan" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Salon">
+          <Key>
+            <PropertyRef Name="Id_salon" />
+          </Key>
+          <Property Name="Id_salon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_salon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Capacidad" Type="int" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Semestre">
+          <Key>
+            <PropertyRef Name="Semestre" />
+          </Key>
+          <Property Name="Semestre" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DistribucionDeMaterias.dbo.Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Contrasena" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Distribucion_ClaveMateria">
+          <End Role="ClaveMateria" Type="Self.ClaveMateria" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClaveMateria">
+              <PropertyRef Name="Id_clavemateria" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_clavemateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Dia">
+          <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="Id_dia" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Grupo">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="Id_grupo" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Hora">
+          <End Role="Hora" Type="Self.Hora" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hora">
+              <PropertyRef Name="Id_hora" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_hora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Materia">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="Id_materia" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Plan">
+          <End Role="PlanEstudios" Type="Self.PlanEstudios" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanEstudios">
+              <PropertyRef Name="Id_plan" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_plan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="Id_salon" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_salon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Semestre">
+          <End Role="Semestre" Type="Self.Semestre" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestre">
+              <PropertyRef Name="Semestre" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DistribucionDeMateriasModelStoreContainer">
+          <EntitySet Name="ClaveMateria" EntityType="Self.ClaveMateria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distribucion" EntityType="Self.Distribucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hora" EntityType="Self.Hora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlanEstudios" EntityType="Self.PlanEstudios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Salon" EntityType="Self.Salon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semestre" EntityType="Self.Semestre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Usuarios].[IdUsuario] AS [IdUsuario], 
+    [Usuarios].[Usuario] AS [Usuario], 
+    [Usuarios].[Contrasena] AS [Contrasena]
+    FROM [dbo].[Usuarios] AS [Usuarios]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_Distribucion_ClaveMateria" Association="Self.fk_Distribucion_ClaveMateria">
+            <End Role="ClaveMateria" EntitySet="ClaveMateria" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Dia" Association="Self.fk_Distribucion_Dia">
+            <End Role="Dia" EntitySet="Dia" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Grupo" Association="Self.fk_Distribucion_Grupo">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Hora" Association="Self.fk_Distribucion_Hora">
+            <End Role="Hora" EntitySet="Hora" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Materia" Association="Self.fk_Distribucion_Materia">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Plan" Association="Self.fk_Distribucion_Plan">
+            <End Role="PlanEstudios" EntitySet="PlanEstudios" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Salon" Association="Self.fk_Distribucion_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Semestre" Association="Self.fk_Distribucion_Semestre">
+            <End Role="Semestre" EntitySet="Semestre" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DistribucionDeMateriasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClaveMateria">
+          <Key>
+            <PropertyRef Name="Id_clavemateria" />
+          </Key>
+          <Property Name="Id_clavemateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_ClaveMateria" FromRole="ClaveMateria" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="Id_dia" />
+          </Key>
+          <Property Name="Id_dia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave_dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Dia" FromRole="Dia" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Distribucion">
+          <Key>
+            <PropertyRef Name="Id_distribucion" />
+          </Key>
+          <Property Name="Id_distribucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_plan" Type="Int32" Nullable="false" />
+          <Property Name="Id_clavemateria" Type="Int32" Nullable="false" />
+          <Property Name="Id_materia" Type="Int32" Nullable="false" />
+          <Property Name="Id_grupo" Type="Int32" Nullable="false" />
+          <Property Name="Id_hora" Type="Int32" Nullable="false" />
+          <Property Name="Id_dia" Type="Int32" Nullable="false" />
+          <Property Name="Id_salon" Type="Int32" Nullable="false" />
+          <Property Name="Semestre" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClaveMateria" Relationship="Self.fk_Distribucion_ClaveMateria" FromRole="Distribucion" ToRole="ClaveMateria" />
+          <NavigationProperty Name="Dia" Relationship="Self.fk_Distribucion_Dia" FromRole="Distribucion" ToRole="Dia" />
+          <NavigationProperty Name="Grupo" Relationship="Self.fk_Distribucion_Grupo" FromRole="Distribucion" ToRole="Grupo" />
+          <NavigationProperty Name="Hora" Relationship="Self.fk_Distribucion_Hora" FromRole="Distribucion" ToRole="Hora" />
+          <NavigationProperty Name="Materia" Relationship="Self.fk_Distribucion_Materia" FromRole="Distribucion" ToRole="Materia" />
+          <NavigationProperty Name="PlanEstudios" Relationship="Self.fk_Distribucion_Plan" FromRole="Distribucion" ToRole="PlanEstudios" />
+          <NavigationProperty Name="Salon" Relationship="Self.fk_Distribucion_Salon" FromRole="Distribucion" ToRole="Salon" />
+          <NavigationProperty Name="Semestre1" Relationship="Self.fk_Distribucion_Semestre" FromRole="Distribucion" ToRole="Semestre" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="Id_grupo" />
+          </Key>
+          <Property Name="Id_grupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero_grupo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Grupo" FromRole="Grupo" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Hora">
+          <Key>
+            <PropertyRef Name="Id_hora" />
+          </Key>
+          <Property Name="Id_hora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Hora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hora_inicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Hora_fin" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Hora" FromRole="Hora" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="Id_materia" />
+          </Key>
+          <Property Name="Id_materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_materia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Materia" FromRole="Materia" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="PlanEstudios">
+          <Key>
+            <PropertyRef Name="Id_plan" />
+          </Key>
+          <Property Name="Id_plan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave_plan" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Plan" FromRole="PlanEstudios" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Salon">
+          <Key>
+            <PropertyRef Name="Id_salon" />
+          </Key>
+          <Property Name="Id_salon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_salon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Capacidad" Type="Int32" Nullable="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Salon" FromRole="Salon" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Semestre">
+          <Key>
+            <PropertyRef Name="Semestre1" />
+          </Key>
+          <Property Name="Semestre1" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Distribucion" Relationship="Self.fk_Distribucion_Semestre" FromRole="Semestre" ToRole="Distribucion" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="Usuario" />
+            <PropertyRef Name="Contrasena" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Distribucion_ClaveMateria">
+          <End Role="ClaveMateria" Type="Self.ClaveMateria" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClaveMateria">
+              <PropertyRef Name="Id_clavemateria" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_clavemateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Dia">
+          <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="Id_dia" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Grupo">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="Id_grupo" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Hora">
+          <End Role="Hora" Type="Self.Hora" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hora">
+              <PropertyRef Name="Id_hora" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_hora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Materia">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="Id_materia" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Plan">
+          <End Role="PlanEstudios" Type="Self.PlanEstudios" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlanEstudios">
+              <PropertyRef Name="Id_plan" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_plan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Salon">
+          <End Role="Salon" Type="Self.Salon" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Salon">
+              <PropertyRef Name="Id_salon" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Id_salon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Distribucion_Semestre">
+          <End Role="Semestre" Type="Self.Semestre" Multiplicity="1" />
+          <End Role="Distribucion" Type="Self.Distribucion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semestre">
+              <PropertyRef Name="Semestre1" />
+            </Principal>
+            <Dependent Role="Distribucion">
+              <PropertyRef Name="Semestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DistribucionDeMateriasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClaveMateria" EntityType="Self.ClaveMateria" />
+          <EntitySet Name="Dia" EntityType="Self.Dia" />
+          <EntitySet Name="Distribucion" EntityType="Self.Distribucion" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+          <EntitySet Name="Hora" EntityType="Self.Hora" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" />
+          <EntitySet Name="PlanEstudios" EntityType="Self.PlanEstudios" />
+          <EntitySet Name="Salon" EntityType="Self.Salon" />
+          <EntitySet Name="Semestre" EntityType="Self.Semestre" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="fk_Distribucion_ClaveMateria" Association="Self.fk_Distribucion_ClaveMateria">
+            <End Role="ClaveMateria" EntitySet="ClaveMateria" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Dia" Association="Self.fk_Distribucion_Dia">
+            <End Role="Dia" EntitySet="Dia" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Grupo" Association="Self.fk_Distribucion_Grupo">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Hora" Association="Self.fk_Distribucion_Hora">
+            <End Role="Hora" EntitySet="Hora" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Materia" Association="Self.fk_Distribucion_Materia">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Plan" Association="Self.fk_Distribucion_Plan">
+            <End Role="PlanEstudios" EntitySet="PlanEstudios" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Salon" Association="Self.fk_Distribucion_Salon">
+            <End Role="Salon" EntitySet="Salon" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Distribucion_Semestre" Association="Self.fk_Distribucion_Semestre">
+            <End Role="Semestre" EntitySet="Semestre" />
+            <End Role="Distribucion" EntitySet="Distribucion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DistribucionDeMateriasModelStoreContainer" CdmEntityContainer="DistribucionDeMateriasEntities">
+          <EntitySetMapping Name="ClaveMateria">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.ClaveMateria">
+              <MappingFragment StoreEntitySet="ClaveMateria">
+                <ScalarProperty Name="Id_clavemateria" ColumnName="Id_clavemateria" />
+                <ScalarProperty Name="Nombre_clave" ColumnName="Nombre_clave" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dia">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Dia">
+              <MappingFragment StoreEntitySet="Dia">
+                <ScalarProperty Name="Id_dia" ColumnName="Id_dia" />
+                <ScalarProperty Name="Clave_dia" ColumnName="Clave_dia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distribucion">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Distribucion">
+              <MappingFragment StoreEntitySet="Distribucion">
+                <ScalarProperty Name="Id_distribucion" ColumnName="Id_distribucion" />
+                <ScalarProperty Name="Id_plan" ColumnName="Id_plan" />
+                <ScalarProperty Name="Id_clavemateria" ColumnName="Id_clavemateria" />
+                <ScalarProperty Name="Id_materia" ColumnName="Id_materia" />
+                <ScalarProperty Name="Id_grupo" ColumnName="Id_grupo" />
+                <ScalarProperty Name="Id_hora" ColumnName="Id_hora" />
+                <ScalarProperty Name="Id_dia" ColumnName="Id_dia" />
+                <ScalarProperty Name="Id_salon" ColumnName="Id_salon" />
+                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupo">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="Id_grupo" ColumnName="Id_grupo" />
+                <ScalarProperty Name="Numero_grupo" ColumnName="Numero_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hora">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Hora">
+              <MappingFragment StoreEntitySet="Hora">
+                <ScalarProperty Name="Id_hora" ColumnName="Id_hora" />
+                <ScalarProperty Name="Nombre_Hora" ColumnName="Nombre_Hora" />
+                <ScalarProperty Name="Hora_inicio" ColumnName="Hora_inicio" />
+                <ScalarProperty Name="Hora_fin" ColumnName="Hora_fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materia">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Materia">
+              <MappingFragment StoreEntitySet="Materia">
+                <ScalarProperty Name="Id_materia" ColumnName="Id_materia" />
+                <ScalarProperty Name="Nombre_materia" ColumnName="Nombre_materia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanEstudios">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.PlanEstudios">
+              <MappingFragment StoreEntitySet="PlanEstudios">
+                <ScalarProperty Name="Id_plan" ColumnName="Id_plan" />
+                <ScalarProperty Name="Clave_plan" ColumnName="Clave_plan" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Salon">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Salon">
+              <MappingFragment StoreEntitySet="Salon">
+                <ScalarProperty Name="Id_salon" ColumnName="Id_salon" />
+                <ScalarProperty Name="Nombre_salon" ColumnName="Nombre_salon" />
+                <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semestre">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Semestre">
+              <MappingFragment StoreEntitySet="Semestre">
+                <ScalarProperty Name="Semestre1" ColumnName="Semestre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
