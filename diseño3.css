@@ -59,7 +59,7 @@ body {
 #materia{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 300px;
+	height: 450px;
 	width: 800px;
 	left: 35%;
 	top: 15%;
@@ -202,6 +202,22 @@ button{
    display: inline-block;
      height: 100%; 
   font-family: 'Noto Sans', sans-serif;
+  width:100px;
+ height:40px;
  }
 
-
+.dia{
+	
+	 background: white;
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: black;
+   font-size: 12px;
+   padding: 4px;
+   display: inline-block;
+     height: 100%; 
+  font-family: 'Noto Sans', sans-serif;
+  width:200px;
+ height:80px;
+	
+}
