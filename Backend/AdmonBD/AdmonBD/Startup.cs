@@ -1,12 +1,14 @@
+using AdmonBD.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-//using Microsoft.OpenApi.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,17 @@ namespace AdmonBD
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AdmonContext>(options =>
+            {
+                if (false)
+                {
+                    options.UseSqlServer("Server=abd-veranos.database.windows.net;Database=DistribucionDeMaterias;User Id=jalvarez;Password=28joma0621*");
+                }
+                else
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                }
+            });
 
             services.AddControllers();
             /*services.AddSwaggerGen(c =>
@@ -37,6 +50,9 @@ namespace AdmonBD
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
             });
+
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

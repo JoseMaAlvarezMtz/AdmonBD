@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DistribucionDeMateriasModelStoreContainer" CdmEntityContainer="DistribucionDeMateriasEntities">
+    <EntitySetMapping Name="ClaveMateria">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.ClaveMateria">
+        <MappingFragment StoreEntitySet="ClaveMateria">
+          <ScalarProperty Name="Id_clavemateria" ColumnName="Id_clavemateria" />
+          <ScalarProperty Name="Nombre_clave" ColumnName="Nombre_clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dia">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Dia">
+        <MappingFragment StoreEntitySet="Dia">
+          <ScalarProperty Name="Id_dia" ColumnName="Id_dia" />
+          <ScalarProperty Name="Clave_dia" ColumnName="Clave_dia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distribucion">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Distribucion">
+        <MappingFragment StoreEntitySet="Distribucion">
+          <ScalarProperty Name="Id_distribucion" ColumnName="Id_distribucion" />
+          <ScalarProperty Name="Id_plan" ColumnName="Id_plan" />
+          <ScalarProperty Name="Id_clavemateria" ColumnName="Id_clavemateria" />
+          <ScalarProperty Name="Id_materia" ColumnName="Id_materia" />
+          <ScalarProperty Name="Id_grupo" ColumnName="Id_grupo" />
+          <ScalarProperty Name="Id_hora" ColumnName="Id_hora" />
+          <ScalarProperty Name="Id_dia" ColumnName="Id_dia" />
+          <ScalarProperty Name="Id_salon" ColumnName="Id_salon" />
+          <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupo">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Grupo">
+        <MappingFragment StoreEntitySet="Grupo">
+          <ScalarProperty Name="Id_grupo" ColumnName="Id_grupo" />
+          <ScalarProperty Name="Numero_grupo" ColumnName="Numero_grupo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hora">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Hora">
+        <MappingFragment StoreEntitySet="Hora">
+          <ScalarProperty Name="Id_hora" ColumnName="Id_hora" />
+          <ScalarProperty Name="Nombre_Hora" ColumnName="Nombre_Hora" />
+          <ScalarProperty Name="Hora_inicio" ColumnName="Hora_inicio" />
+          <ScalarProperty Name="Hora_fin" ColumnName="Hora_fin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="Id_materia" ColumnName="Id_materia" />
+          <ScalarProperty Name="Nombre_materia" ColumnName="Nombre_materia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanEstudios">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.PlanEstudios">
+        <MappingFragment StoreEntitySet="PlanEstudios">
+          <ScalarProperty Name="Id_plan" ColumnName="Id_plan" />
+          <ScalarProperty Name="Clave_plan" ColumnName="Clave_plan" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salon">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Salon">
+        <MappingFragment StoreEntitySet="Salon">
+          <ScalarProperty Name="Id_salon" ColumnName="Id_salon" />
+          <ScalarProperty Name="Nombre_salon" ColumnName="Nombre_salon" />
+          <ScalarProperty Name="Capacidad" ColumnName="Capacidad" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semestre">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Semestre">
+        <MappingFragment StoreEntitySet="Semestre">
+          <ScalarProperty Name="Semestre1" ColumnName="Semestre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DistribucionDeMateriasModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

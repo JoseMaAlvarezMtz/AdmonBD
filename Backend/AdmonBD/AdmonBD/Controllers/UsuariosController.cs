@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdmonBD.Models;
+using AdmonBD.Servicios;
 
 namespace AdmonBD.Controllers
 {
@@ -12,27 +13,18 @@ namespace AdmonBD.Controllers
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private UsuariosService UsuariosService;
 
-        private readonly ILogger<UsuariosController> _logger;
-
-        public UsuariosController(ILogger<UsuariosController> logger)
+        public UsuariosController(UsuariosService usuariosRepository)
         {
-            _logger = logger;
+            this.UsuariosService = usuariosRepository;
         }
 
         [HttpGet]
-        public Usuarios Get()
+        public IEnumerable<Usuarios> Get()
         {
-            Usuarios user = new Usuarios() ;
-            user.IdUsuario = 1;
-            user.Usuario = "jose";
-            user.Contrasena = "1234";
 
-            return user;
+            return UsuariosService.Consulta();
         }
     }
 }

@@ -1,0 +1,12 @@
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\DAL.dll.config
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\DAL.dll
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\DAL.pdb
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\EntityFramework.dll
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\EntityFramework.xml
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\obj\Debug\DAL.dll
+C:\Users\chema\Desktop\ADMIN BASES DE DATOS - VERANOS\AdmonBD\Backend\AdmonBD\DAL\obj\Debug\DAL.pdb
