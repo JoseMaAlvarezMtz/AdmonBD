@@ -59,9 +59,9 @@ body {
 #materia{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 450px;
-	width: 800px;
-	left: 35%;
+	height: 350px;
+	width: 1500px;
+	left: 10%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
@@ -222,3 +222,26 @@ button{
  height:30px;
 	
 }
+
+#materia2{
+	background-color:rgba(55, 190, 120, 0.58);
+	position: absolute;
+	height: 450px;
+	width:780px;
+	left: 45%;
+	top: 15%;
+	margin-top: -100px;
+	margin-left: -150px;
+	 /* Centrar el formulario en la página */
+  margin: 0 auto;
+  width: 650px;
+  /* Esquema del formulario */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+ display: block;
+  margin: 1em 0;
+position:center;
+
+}
+
