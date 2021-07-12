@@ -30,24 +30,25 @@
    </div>
   <div id="materia">
    <strong><h1> CLAVE DE MATERIA</h1></strong>
-   <strong><p>Clave de Materia: <input type="text" class="redondeado" size="30" name="clave" maxlength="10000"></p></strong>
-  <strong><p>Descripción: <input type="descripción"class="redondeado" size="36" name="descripción" maxlength="10000"></p>  </strong>
+   <strong><p>Clave de Materia: <input type="text" class="redondeado" size="30" name="clave" id="nombreclave" maxlength="10000"></p></strong>
+  <strong><p>Descripción: <input type="descripción"class="redondeado" size="36" name="descripción" id="descripcion" maxlength="10000"></p>  </strong>
 <center>
    <br>
-   <button class="button1">
+   <button class="button1" onclick="Agregar();">
   <img src="agregar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
  Agregar 
 </button>&nbsp;
-   <button class="button2">
+   <button class="button2" onclick="Editar();">
   <img src="guardar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
 Guardar 
 </button> &nbsp;
-   <button class="button3">
+   <button class="button3" onclick="Eliminar();">
   <img src="eliminar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
 Eliminar 
 </button>
   </div>
 	
 	</center>
+  <script languaje="javascript" src="ClaveMateria.js"></script>
 </body>
 </html>
