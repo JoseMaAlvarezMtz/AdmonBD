@@ -1,4 +1,5 @@
 using AdmonBD.Models;
+using AdmonBD.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -67,7 +68,12 @@ namespace AdmonBD
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .WithMethods("GET", "POST", "PUT", "DELETE");
+            });
 
             app.UseHttpsRedirection();
 

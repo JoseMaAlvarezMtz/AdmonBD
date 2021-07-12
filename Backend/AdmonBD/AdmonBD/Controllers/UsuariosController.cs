@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdmonBD.Models;
-using AdmonBD.Servicios;
 
 namespace AdmonBD.Controllers
 {
@@ -13,18 +12,18 @@ namespace AdmonBD.Controllers
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
-        private UsuariosService UsuariosService;
+        private readonly AdmonContext context;
 
-        public UsuariosController(UsuariosService usuariosRepository)
+        public UsuariosController(AdmonContext admonContext)
         {
-            this.UsuariosService = usuariosRepository;
+            this.context = admonContext;
         }
 
         [HttpGet]
         public IEnumerable<Usuarios> Get()
         {
 
-            return UsuariosService.Consulta();
+            return context.Usuarios.ToList();
         }
     }
 }
