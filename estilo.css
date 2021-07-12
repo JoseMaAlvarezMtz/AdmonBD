@@ -206,35 +206,7 @@ button{
 
 
 
-.redondeado1{
-	 background: white;
-   border: 1px solid #393939;
-   border-radius: 5px 5px 5px 5px;
-   color: black;
-   font-size: 12px;
-   padding: 4px;
-   display: inline-block;
-     height: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  width:115px;
- height:20px;	
-}
-.redondeado2{
- background: white;
-   border: 1px solid #393939;
-   border-radius: 5px 5px 5px 5px;
-   color: black;
-   font-size: 12px;
-   padding: 4px;
-   display: inline-block;
-     height: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  width:155px;
- height:20px;	
-	
-	
-	
-}
+
 
 #materia2{
 	background-color:rgba(55, 190, 120, 0.58);
@@ -285,4 +257,22 @@ form input {
   width:155px;
  height:20px;	
 }
+.button4{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 12px;
+    height: 65px;
+    width: 80px;
+	position: absolute;
 
+	left: 20%;
+	top: 70%;
+}
+
+.button4:hover {
+    background-color:#A42304;
+;
+    color: white;
+
+}
