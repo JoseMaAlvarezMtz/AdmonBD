@@ -190,37 +190,6 @@ button{
     color: white;
 
 }
-.redondeado {
-
- 
- background: white;
-   border: 1px solid #393939;
-   border-radius: 5px 5px 5px 5px;
-   color: black;
-   font-size: 12px;
-   padding: 4px;
-   display: inline-block;
-     height: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  width:100px;
- height:20px;
- }
-
-.redondeado2 {
-
- 
- background: white;
-   border: 1px solid #393939;
-   border-radius: 5px 5px 5px 5px;
-   color: black;
-   font-size: 12px;
-   padding: 4px;
-   display: inline-block;
-     height: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  width:160px;
- height:20px;
- }
 
 
 
@@ -247,5 +216,32 @@ position:center;
 }
 
 	
+form {
+    width: 400px;
+    font: normal bold 12px Verdana, Arial;
+}
+
+form label {
+    display: inline-block;
+    width: 150px;
+	 font-family: 'Noto Sans', sans-serif;
+	 font-size: 120%;
+}
+
+form input {
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 10px;
+	 border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: black;
+   font-size: 12px;
+   padding: 4px;
+   display: inline-block;
+     height: 100%; 
+  font-family: 'Noto Sans', sans-serif;
+  width:155px;
+ height:20px;	
+}
 	
 
