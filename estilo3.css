@@ -1,0 +1,247 @@
+#menu ul li a{
+display:block;
+color:white;
+text-decoration:none;
+padding:10px;
+font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+#menu{
+background-color:#000;
+}
+
+#menu ul{
+list-style:none;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+#menu ul li{
+	display: inline-block;
+
+}
+
+#menu ul li a{
+color:white;
+padding:4px  25px;
+text-decoration:none;
+display:block;
+
+}
+
+#menu ul li a:hover{
+background-color:#086D14;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  background: url(fondo.png); 
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  height: 100vh;
+}
+
+
+#materia{
+	background-color:rgba(55, 190, 120, 0.58);
+	position: absolute;
+	height: 300px;
+	width: 1500px;
+	left: 10%;
+	top: 15%;
+	margin-top: -100px;
+	margin-left: -150px;
+	 /* Centrar el formulario en la página */
+  margin: 0 auto;
+  width: 400px;
+  /* Esquema del formulario */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+ display: block;
+  margin: 1em 0;
+position:center;
+
+}
+h1{
+    font-family: "Arial Narrow",Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-shadow: 1.5px 1.5px 1.5px #FBFFEE;
+
+}
+
+p{
+	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	 text-align: center;
+}
+
+
+/* buttons  */
+button {
+    display: inline-block;
+    color: #252537;
+  
+    width: 200px;
+    height: 50px;
+  
+    padding: 0 10px;
+    background: #fff;
+    border-radius: 5px;
+    
+    outline: none;
+    border: none;
+  
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+    
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+}
+/* Submits */
+.submits {
+    width: %;
+    display: inline-block;
+    float: left;
+    margin-left: 2%;
+}
+
+
+
+
+/* buttons hover */
+button:hover {
+    transform: translatey(3px);
+    box-shadow: none;
+}
+
+/* buttons hover Animation */
+button:hover {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+}
+@keyframes ani9 {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+
+
+button{
+	
+	font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+.button3 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 8px;
+    height: 65px;
+    width: 80px;
+}
+
+.button3:hover {
+    background-color: #A42304;
+    color: white;
+}
+.button2 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 12px;
+    height: 65px;
+    width: 80px;
+}
+
+.button2:hover {
+    background-color:#2D8500
+;
+    color: white;
+}
+.button1{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 12px;
+    height: 65px;
+    width: 80px;
+}
+
+.button1:hover {
+    background-color:#003F72
+;
+    color: white;
+
+}
+.redondeado {
+
+ 
+ background: white;
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: black;
+   font-size: 12px;
+   padding: 4px;
+   display: inline-block;
+     height: 100%; 
+  font-family: 'Noto Sans', sans-serif;
+  width:100px;
+ height:20px;
+ }
+
+
+
+.descripción{
+	 background: white;
+   border: 1px solid #393939;
+   border-radius: 5px 5px 5px 5px;
+   color: black;
+   font-size: 12px;
+   padding: 4px;
+   display: inline-block;
+     height: 100%; 
+  font-family: 'Noto Sans', sans-serif;
+  width:180px;
+ height:30px;
+	
+}
+
+#materia2{
+	background-color:rgba(55, 190, 120, 0.58);
+	position: absolute;
+	height: 450px;
+	width:780px;
+	left: 45%;
+	top: 15%;
+	margin-top: -100px;
+	margin-left: -150px;
+	 /* Centrar el formulario en la página */
+  margin: 0 auto;
+  width: 650px;
+  /* Esquema del formulario */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+ display: block;
+  margin: 1em 0;
+position:center;
+
+}
+
