@@ -59,15 +59,15 @@ body {
 #materia{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 428px;
-	width: 1500px;
-	left: 3%;
+	height: 460px;
+	width: 1200px;
+	left: 5%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
 	 /* Centrar el formulario en la página */
   margin: 0 auto;
-  width: 500px;
+  width: 470px;
   /* Esquema del formulario */
   padding: 1em;
   border: 1px solid #CCC;
@@ -109,7 +109,7 @@ button {
     text-align: center;
     transition: all 0.2s linear;
     
-    margin: 7% auto;
+    margin: 4% auto;
     letter-spacing: 0.05em;
 }
 /* Submits */
@@ -195,9 +195,9 @@ button{
 #materia2{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 250px;
-	width:580px;
-	left: 48%;
+	height: 455px;
+	width:545px;
+	left: 46.3%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
@@ -242,7 +242,7 @@ form label {
 form input {
     display: inline-block;
     width: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 	 border: 1px solid #393939;
    border-radius: 5px 5px 5px 5px;
    color: black;
@@ -252,6 +252,6 @@ form input {
      height: 100%; 
   font-family: 'Noto Sans', sans-serif;
   width:155px;
- height:20px;	
+ height:18px;	
 }
 
