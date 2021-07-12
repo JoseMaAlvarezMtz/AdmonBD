@@ -10,36 +10,36 @@ namespace AdmonBD.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClaveMateriaController : ControllerBase
+    public class SemestreController : ControllerBase
     {
         private readonly AdmonContext context;
-        private string objeto = "CLAVE DE MATERIA";
+        private string objeto = "SEMESTRE";
 
-        public ClaveMateriaController(AdmonContext admonContext)
+        public SemestreController(AdmonContext admonContext)
         {
             this.context = admonContext;
         }
 
         [HttpGet]
-        public IEnumerable<ClaveMateria> Get()
+        public IEnumerable<Semestre> Get()
         {
 
-            return context.ClaveMateria.ToList();
+            return context.Semestre.ToList();
         }
 
         [HttpGet("{id}")]
-        public ClaveMateria Get(string id)
+        public Semestre Get(int id)
         {
 
-            return context.ClaveMateria.FirstOrDefault( j => j.NombreClave == id);
+            return context.Semestre.FirstOrDefault( j => j.Semestre1 == id);
         }
 
         [HttpPost]
-        public string Post(ClaveMateria claveMateria)
+        public string Post(Semestre semestre)
         {
             try
             {
-                context.ClaveMateria.Add(claveMateria);
+                context.Semestre.Add(semestre);
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -50,12 +50,12 @@ namespace AdmonBD.Controllers
         }
 
         [HttpPut]
-        public string Put(ClaveMateria claveMateria)
+        public string Put(Semestre semestre)
         {
             try
             {
-                var Editar = context.ClaveMateria.FirstOrDefault(j => j.NombreClave == claveMateria.NombreClave);
-                Editar.Descripcion = claveMateria.Descripcion;
+                var Editar = context.Semestre.FirstOrDefault(j => j.Semestre1 == semestre.Semestre1);
+                Editar.Descripcion = semestre.Descripcion;
                 context.SaveChanges();
             }
             catch(Exception ex)
@@ -66,11 +66,11 @@ namespace AdmonBD.Controllers
         }
 
         [HttpDelete("{id}")]
-        public string Delete(string id)
+        public string Delete(int id)
         {
             try
             {
-                context.Remove(context.ClaveMateria.Single(j => j.NombreClave == id));
+                context.Remove(context.Semestre.Single(j => j.Semestre1 == id));
                 context.SaveChanges();
             }
             catch(Exception ex)

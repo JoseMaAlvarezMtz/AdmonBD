@@ -28,10 +28,10 @@ namespace AdmonBD.Controllers
         }
 
         [HttpGet("{id}")]
-        public ClaveMateria Get(string id)
+        public ClaveMateria Get(int id)
         {
 
-            return context.ClaveMateria.FirstOrDefault( j => j.NombreClave == id);
+            return context.ClaveMateria.FirstOrDefault( j => j.IdClavemateria == id);
         }
 
         [HttpPost]
@@ -66,11 +66,11 @@ namespace AdmonBD.Controllers
         }
 
         [HttpDelete("{id}")]
-        public string Delete(string id)
+        public string Delete(int id)
         {
             try
             {
-                context.Remove(context.ClaveMateria.Single(j => j.NombreClave == id));
+                context.Remove(context.ClaveMateria.Single(j => j.IdClavemateria == id));
                 context.SaveChanges();
             }
             catch(Exception ex)

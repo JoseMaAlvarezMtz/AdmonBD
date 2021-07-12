@@ -10,36 +10,36 @@ namespace AdmonBD.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClaveMateriaController : ControllerBase
+    public class PlanEstudiosController : ControllerBase
     {
         private readonly AdmonContext context;
-        private string objeto = "CLAVE DE MATERIA";
+        private string objeto = "PLAN DE ESTUDIOS";
 
-        public ClaveMateriaController(AdmonContext admonContext)
+        public PlanEstudiosController(AdmonContext admonContext)
         {
             this.context = admonContext;
         }
 
         [HttpGet]
-        public IEnumerable<ClaveMateria> Get()
+        public IEnumerable<PlanEstudios> Get()
         {
 
-            return context.ClaveMateria.ToList();
+            return context.PlanEstudios.ToList();
         }
 
         [HttpGet("{id}")]
-        public ClaveMateria Get(string id)
+        public PlanEstudios Get(int id)
         {
 
-            return context.ClaveMateria.FirstOrDefault( j => j.NombreClave == id);
+            return context.PlanEstudios.FirstOrDefault( j => j.IdPlan == id);
         }
 
         [HttpPost]
-        public string Post(ClaveMateria claveMateria)
+        public string Post(PlanEstudios planEstudios)
         {
             try
             {
-                context.ClaveMateria.Add(claveMateria);
+                context.PlanEstudios.Add(planEstudios);
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -50,12 +50,13 @@ namespace AdmonBD.Controllers
         }
 
         [HttpPut]
-        public string Put(ClaveMateria claveMateria)
+        public string Put(PlanEstudios planEstudios)
         {
             try
             {
-                var Editar = context.ClaveMateria.FirstOrDefault(j => j.NombreClave == claveMateria.NombreClave);
-                Editar.Descripcion = claveMateria.Descripcion;
+                var Editar = context.PlanEstudios.FirstOrDefault(j => j.IdPlan == planEstudios.IdPlan);
+                Editar.ClavePlan = planEstudios.ClavePlan;
+                Editar.Descripcion = planEstudios.Descripcion;
                 context.SaveChanges();
             }
             catch(Exception ex)
@@ -66,11 +67,11 @@ namespace AdmonBD.Controllers
         }
 
         [HttpDelete("{id}")]
-        public string Delete(string id)
+        public string Delete(int id)
         {
             try
             {
-                context.Remove(context.ClaveMateria.Single(j => j.NombreClave == id));
+                context.Remove(context.PlanEstudios.Single(j => j.IdPlan == id));
                 context.SaveChanges();
             }
             catch(Exception ex)
