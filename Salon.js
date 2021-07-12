@@ -60,7 +60,7 @@ function Mensaje(data){
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
     const inputIdClavemateria = document.getElementById("nombreclave").value;
-    let url = uri + "/" + inputIdClavemateria;
+    let url = uri + "/" + inputIdClavemateria
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
     .then(data => Mensaje(data))
