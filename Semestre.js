@@ -1,4 +1,4 @@
-const uri = 'https://localhost:44390/api/ClaveMateria';
+const uri = 'https://localhost:44390/api/Semestre';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
