@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/ClaveMateria';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -11,6 +15,19 @@ function getItems() {
 
 function _displayItems(data){
     console.log(data);
+    let html = '';
+        for (i = 0; i < data.length; i++){
+            html += '<tr>'+
+                        '<td class="tdUsername pv3 w-35 pr3 bb b--black-20">'+ data[i].descripcion + '</td>'+
+                        '<td class="tdPassword pv3 w-35 pr3 bb b--black-20">'+ data[i].nombreClave + '</td>'+
+                        '<td class="pv3 w-30 pr3 bb b--black-20">'+
+                          '<div class="btn-group" role="group" aria-label="Basic example">'+
+                            '<a class="editButton f6 grow no-underline ba bw1 ph3 pv2 mb2 dib black pointer"  data-toggle="modal">EDIT</a>'+
+                            '<a class="deleteButton f6 grow no-underline ba bw1 ph3 pv2 mb2 dib black pointer"  data-toggle="modal">DELETE</a>'+
+                          '</div>'+
+                        '</td>'+
+                    '</tr>'}
+                    $('#tabla').html(html);
     //PENDIENTE DE TERMINAR
 }
 
