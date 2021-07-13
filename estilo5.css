@@ -36,17 +36,6 @@ background-color:#086D14;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 body {
   background: url(fondo.png); 
   background-size: cover;
@@ -89,6 +78,12 @@ p{
 	 text-align: center;
 }
 
+
+#opcion {
+    height: 25px;
+    width: 170px;
+    margin-top: 6px;
+}
 
 /* buttons  */
 button {

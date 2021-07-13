@@ -262,12 +262,12 @@ form input {
     color: black; 
     border: 2px solid #black;
 	border-radius: 12px;
-    height: 40px;
-    width: 140px;
+    height: 65px;
+    width: 80px;
 	position: absolute;
-	left: 90%;
-	top: -7%;
 
+	left: 20%;
+	top: 70%;
 }
 
 .button4:hover {
