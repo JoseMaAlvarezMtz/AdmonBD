@@ -5,16 +5,10 @@
 <meta charset="UTF-8">
     <link rel="stylesheet" href="estilo5.css">
 </head>
-
-
-
 <body>
-
    <div id="menu">
 <center>
-
    <ul>
-   
    <li><a href="Distribuciones.html">Distribuciones<a/></li>
    <li><a href="Clave%20de%20Materia.html">Clave de Materia<a/></li>
    <li><a href="Día%20Clase.html">Días de Clase <a/></li>
@@ -27,39 +21,66 @@
    </center>
    </ul>
    </div>
-  <div id="materia">
-  
-   <strong><h1>DISTRIBUCIONES</h1></strong>
+   
    
 
-  <form>
-        
-    <label for="name">ID Distribución:</label>
-    <input type="text">
-        
-    <label for="lastname"> ID Plan:</label>
-    <input type="text">
-    
-	 <label for="lastname"> ID Clave Materia:</label>
-    <input type="text" id="lastname">
+   <form action="Iinicio2.html#">
+      <div id="boton">
 
-    <label for="name">ID Materia:</label>
-    <input type="text">
+ <br>   <button class="button4" onclick="Cerrar Sesión();">
+<img src="salir.png" alt="cdlibre.org" width="20" height="20" align="left">
+Cerrar Sesión
+
+</form>
+</div>
+   
+  <div id="materia">
+   <strong><h1>DISTRIBUCIONES</h1></strong>
+  <form>        
+    <label for="name">Distribución:</label>
+   <select id="opcion"> <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option></select>
         
-    <label for="lastname"> ID Grupo:</label>
-    <input type="text">
+    <label for="name">Plan:</label>
+      <select id="opcion"> <option value="401">401</option>
+      <option value="103">103</option>
+      <option value="102">102</option></select>
     
-    <label for="lastname"> ID Hora:</label>
-    <input type="text" id="lastname">
+	 <label for="name">Clave Materia:</label>
+     <select id="opcion"> <option value="100">100</option>
+      <option value="5">5</option>
+      <option value="124">124</option></select>
 
-    <label for="lastname"> ID Día:</label>
-    <input type="text">
+    <label for="name">Materia:</label>
+     <select id="opcion"> <option value="Probabilidad y Estadística">Probabilidad y Estadística</option>
+      <option value="Matemáticas V">Matemáticas V</option>
+      <option value="Aseguramiento de Calidad">Aseguramiento de Calidad</option></select>
+        
+    <label for="name">Grupo:</label>
+    <select id="opcion"> <option value="1">1</option>
+      <option value="1">2</option>
+      <option value="5"></option></select>
     
-    <label for="lastname"> ID Salón:</label>
-    <input type="text" id="lastname">
+    <label for="name">Hora:</label>
+    <select id="opcion"> <option value="M1">M1</option>
+      <option value="M5">M5</option>
+      <option value="N6">N6</option></select>
 
-    <label for="lastname"> Semestre:</label>
-    <input type="text">
+    <label for="name">Día:</label>
+    <select id="opcion"> <option value="1,3,5">1,3,5</option>
+      <option value="2">2</option>
+      <option value="4">4</option></select>
+    
+    <label for="name">Salón:</label>
+     <select id="opcion"> <option value="4110">4110</option>
+      <option value="4205">4205</option>
+      <option value="4206">4206</option></select>
+
+    <label for="name">Semestre:</label>
+     <select id="opcion"> <option value="5"> 5to</option>
+      <option value="6to">6to</option>
+      <option value="7mo">7mo</option></select>
 </form>
 
 <center>
@@ -75,13 +96,45 @@ Guardar
   <img src="eliminar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
 Eliminar 
 </button>
-  </div>
+  </div>	
 	
-	</center>
-	
-	
-	<div id="materia2">
-	</id>
   <script languaje="javascript" src="ClaveMateria.js"></script>
+  
+  
+  
+  	<div id="materia2">
+	<table id="tabla" class="display" width="100%"></table>
+	
+	<thead>
+	<tr>
+	<th>Distribución<th>
+	<th>Plan<th>
+	<th>Clave Materia<th>
+	<th>Materia<th>
+	<th>Grupo<th>
+	<th>Hora<th>
+	<th>Día<th>
+	<th>Salón<th>
+	<th>Semestre<th>
+
+	</tr>
+	</thead>
+	</table>
+	
+	
+	
+	
+	
+	</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </body>
 </html>

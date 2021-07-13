@@ -2,10 +2,6 @@ const uri = 'https://localhost:44390/api/ClaveMateria';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
-$(function(){
-    getItems();
-});
-
 function getItems() {
   fetch(uri)
     .then(response => response.json())
