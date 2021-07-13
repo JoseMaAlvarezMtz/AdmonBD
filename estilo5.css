@@ -59,15 +59,15 @@ body {
 #materia{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 350px;
-	width: 1500px;
-	left: 10%;
+	height: 460px;
+	width: 1200px;
+	left: 5%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
 	 /* Centrar el formulario en la página */
   margin: 0 auto;
-  width: 400px;
+  width: 470px;
   /* Esquema del formulario */
   padding: 1em;
   border: 1px solid #CCC;
@@ -109,7 +109,7 @@ button {
     text-align: center;
     transition: all 0.2s linear;
     
-    margin: 7% auto;
+    margin: 4% auto;
     letter-spacing: 0.05em;
 }
 /* Submits */
@@ -190,36 +190,20 @@ button{
     color: white;
 
 }
-.redondeado {
- background: white;
-   border: 1px solid #393939;
-   border-radius: 5px 5px 5px 5px;
-   color: black;
-   font-size: 12px;
-   padding: 4px;
-   display: inline-block;
-     height: 100%; 
-  font-family: 'Noto Sans', sans-serif;
-  width:120px;
- height:20px;
- }
-
-
-
 
 
 #materia2{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
-	height: 450px;
-	width:780px;
-	left: 45%;
+	height: 455px;
+	width:545px;
+	left: 46.3%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
 	 /* Centrar el formulario en la página */
   margin: 0 auto;
-  width: 650px;
+  width: 600px;
   /* Esquema del formulario */
   padding: 1em;
   border: 1px solid #CCC;
@@ -230,8 +214,21 @@ position:center;
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 form {
-    width: 400px;
+    width: 450px;
     font: normal bold 12px Verdana, Arial;
 }
 
@@ -244,8 +241,8 @@ form label {
 
 form input {
     display: inline-block;
-    width: 200px;
-    margin-bottom: 10px;
+    width: 100px;
+    margin-bottom: 6px;
 	 border: 1px solid #393939;
    border-radius: 5px 5px 5px 5px;
    color: black;
@@ -255,24 +252,6 @@ form input {
      height: 100%; 
   font-family: 'Noto Sans', sans-serif;
   width:155px;
- height:20px;	
-}
-.button4{
-    background-color: white; 
-    color: black; 
-    border: 2px solid #black;
-	border-radius: 12px;
-    height: 65px;
-    width: 80px;
-	position: absolute;
-
-	left: 20%;
-	top: 70%;
+ height:18px;	
 }
 
-.button4:hover {
-    background-color:#A42304;
-;
-    color: white;
-
-}
