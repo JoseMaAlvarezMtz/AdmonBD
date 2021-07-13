@@ -255,3 +255,25 @@ form input {
  height:18px;	
 }
 
+
+
+
+.button4{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 12px;
+    height: 40px;
+    width: 140px;
+	position: absolute;
+	left: 90%;
+	top: 0%;
+
+}
+
+.button4:hover {
+    background-color:#A42304;
+;
+    color: white;
+
+}
