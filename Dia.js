@@ -52,8 +52,8 @@ function llenarCampos(data){
 //FUNCIONES PARA AGREGAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Agregar(){
-    const inputDescripcion = document.getElementById("").value;
-    const inputClaveDia = document.getElementById("").value;
+    const inputDescripcion = document.getElementById("descripcion").value;
+    const inputClaveDia = document.getElementById("clavedia").value;
     obj = {
         "Descripcion": inputDescripcion,
         "ClaveDia": inputClaveDia
@@ -73,12 +73,13 @@ function Agregar(){
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
 function Mensaje(data){
     console.log(data);
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    const inputIdDia = document.getElementById("").value;
+    const inputIdDia = document.getElementById("iddia").value;
     let url = uri + "/" + inputIdDia
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
@@ -88,9 +89,11 @@ function Eliminar(){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA EDITAR UN ITEM EN LA BASE DE DATOS
 function Editar(){
-    const inputDescripcion = document.getElementById("").value;
-    const inputClaveDia = document.getElementById("").value;
+    const inputIdDia = document.getElementById("iddia").value;
+    const inputDescripcion = document.getElementById("descripcion").value;
+    const inputClaveDia = document.getElementById("clavedia").value;
     obj = {
+        "IdDia": inputIdDia,
         "Descripcion": inputDescripcion,
         "ClaveDia": inputClaveDia
     }
@@ -99,7 +102,7 @@ function Editar(){
         headers:{
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(ob)
+        body: JSON.stringify(obj)
     })
     .then(response => response.text())
     .then(data => Mensaje(data))

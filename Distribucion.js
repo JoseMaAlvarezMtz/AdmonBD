@@ -213,6 +213,7 @@ function Agregar(){
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
 function Mensaje(data){
     console.log(data);
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
