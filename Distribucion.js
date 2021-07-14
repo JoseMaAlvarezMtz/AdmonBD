@@ -4,6 +4,7 @@ const uri = 'https://localhost:44390/api/Distribucion';
 //Pendiente modificar los ElementByID porque faltan referencias
 $(function(){
     getItems();
+    getSelects();
 });
 
 function getItems() {
@@ -52,7 +53,66 @@ function llenarCampos(data){
     console.log(data.nombreClave);
     console.log(data.idClavemateria);
     console.log(data.descripcion);
+    /*$('#iddistribucion').val(data.idDistribucion);
+    $('#plan').val(data.plan);
+    $('#clavemateria').val(data.clavemateria);
+    $('#materia').val(data.materia);
+    $('#grupo').val(data.grupo);
+    $('#hora').val(data.hora);
+    $('#dia').val(data.dia);
+    $('#salon').val(data.salon);
+    $('#semestre').val(data.semestrecadena);*/
     //PENDIENTE DE TERMINAR
+}
+
+function getSelects(){
+    const ClaveMateria = 'https://localhost:44390/api/ClaveMateria';
+    fetch(ClaveMateria)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Dia = 'https://localhost:44390/api/Dia';
+    fetch(Dia)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Grupo = 'https://localhost:44390/api/Grupo';
+    fetch(Grupo)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Hora = 'https://localhost:44390/api/Hora';
+    fetch(Hora)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Materia = 'https://localhost:44390/api/Materia';
+    fetch(Materia)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const PlanEstudios = 'https://localhost:44390/api/PlanEstudios';
+    fetch(PlanEstudios)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Salon = 'https://localhost:44390/api/Salon';
+    fetch(Salon)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
+
+    const Semestre = 'https://localhost:44390/api/Semestre';
+    fetch(Semestre)
+    .then(response => response.json())
+    .then(data => {    })
+    .catch(error => console.error('Unable to get items.', error));
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA AGREGAR UN ITEM EN LA BASE DE DATOS
