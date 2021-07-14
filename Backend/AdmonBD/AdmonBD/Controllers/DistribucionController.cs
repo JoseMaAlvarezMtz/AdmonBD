@@ -21,10 +21,30 @@ namespace AdmonBD.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Distribucion> Get()
+        public IEnumerable<DistribucionDto> Get()
         {
 
-            return context.Distribucion.ToList();
+            return context.Distribucion.Select(c => new DistribucionDto
+            {
+                IdDistribucion = c.IdDistribucion,
+                IdPlan = c.IdPlan,
+                Plan = c.IdPlanNavigation.ClavePlan,
+                IdClavemateria = c.IdClavemateria,
+                Clavemateria = c.IdClavemateriaNavigation.NombreClave,
+                IdMateria = c.IdMateria,
+                Materia = c.IdMateriaNavigation.NombreMateria,
+                IdGrupo = c.IdGrupo,
+                Grupo = c.IdGrupoNavigation.NumeroGrupo,
+                IdHora = c.IdHora,
+                Hora = c.IdHoraNavigation.NombreHora,
+                IdDia = c.IdDia,
+                Dia = c.IdDiaNavigation.ClaveDia,
+                IdSalon = c.IdSalon,
+                Salon = c.IdSalonNavigation.NombreSalon,
+                Semestre = c.Semestre,
+                Semestrecadena = c.SemestreNavigation.Descripcion
+
+            }).ToList();
         }
 
         [HttpGet("{id}")]
