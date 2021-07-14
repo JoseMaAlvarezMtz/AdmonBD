@@ -2,8 +2,11 @@
 <html lang="en">
 <html>
 <head>
+  <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="jquery.dataTables.min.js"></script>
 <meta charset="UTF-8">
     <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="jquery.dataTables.min.css">
 </head>
 
 
@@ -55,10 +58,10 @@ Cerrar Sesión
     <input type="text" id="name" disabled=»disabled» />
         
     <label for="lastname">Clave Materia:</label>
-    <input type="text" id="lastname">
+    <input type="text" id="nombreclave">
     
 	 <label for="lastname">Descripción:</label>
-    <input type="text" id="lastname">
+    <input type="text" id="descripcion">
 </form>
 
   
@@ -83,12 +86,19 @@ Eliminar
 	
 	<div id="materia2">
 	
-	<table id="tabla" class="display" width="100%"></table>
+	<table id="tabla" class="display" width="100%">
+    <thead>
+      <tr>
+          <th>Id Clave Materia</th>
+          <th>Clave Materia</th>
+          <th>Descripción</th>
+      </tr>
+  </thead>
+  </table>
 	
 	
 
 	</div>
-  <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
   <script languaje="javascript" src="ClaveMateria.js"></script>
 </body>
 </html>

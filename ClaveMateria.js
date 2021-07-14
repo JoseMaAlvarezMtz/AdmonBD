@@ -29,10 +29,26 @@ function _displayItems(data){
                     '</tr>'}
                     $('#tabla').html(html);
     //PENDIENTE DE TERMINAR
+    var Table = $(function(){
+                $('#tabla').DataTable({
+                    data: data,
+                    columns:[
+                        { data: "idClavemateria" },
+                        { data: "nombreClave" },
+                        { data: "descripcion" }
+
+                    ]
+                });
+
+                $('#tabla tbody').on('click', 'tr', function () {
+                    var data = Table.api().row( this ).data();
+                    alert( 'You clicked on '+data[idClavemateria]+'\'s row' );
+                } );
+    });
 }
 
 function ConsultaPorId(){
-    let id = document.getElementById("nombreclave").value;
+    let id = document.getElementById("idclavemateria").value;
     let url = uri + '/'+ id;
     fetch(url)
     .then(response => response.json())
@@ -44,6 +60,9 @@ function llenarCampos(data){
     console.log(data.nombreClave);
     console.log(data.idClavemateria);
     console.log(data.descripcion);
+    $('#idclavemateria').val(data.idClavemateria);
+    $('#nombreclave').val(data.nombreClave);
+    $('#descripcion').val(data.descripcion);
     //PENDIENTE DE TERMINAR
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,12 +89,15 @@ function Agregar(){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
 function Mensaje(data){
+    alert(data);
     console.log(data);
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
+    data = 21;
+    alert("Deseas eliminar este registro"+data);
     const inputIdClavemateria = document.getElementById("nombreclave").value;
     let url = uri + "/" + inputIdClavemateria;
     fetch(url,{method:'DELETE'})
