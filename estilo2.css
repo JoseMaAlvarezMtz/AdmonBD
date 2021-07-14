@@ -242,7 +242,25 @@ form input {
  height:20px;	
 }
 
+.button4{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #black;
+	border-radius: 12px;
+    height: 40px;
+    width: 140px;
+	position: absolute;
+	left: 90%;
+	top: -7%;
 
+}
+
+.button4:hover {
+    background-color:#A42304;
+;
+    color: white;
+
+}
 
 
 .button4{
