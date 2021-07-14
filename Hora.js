@@ -28,9 +28,9 @@ function _displayItems(data){
         });
     });
     $('#tabla tbody').on('click', 'tr', function () {
-    var data = $('#tabla').DataTable().row(this).data();
-    llenarCampos(data);
-} );
+        var data = $('#tabla').DataTable().row(this).data();
+        llenarCampos(data);
+    } );
 }
 
 function ConsultaPorId(){

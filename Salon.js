@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/Salon';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -12,10 +16,26 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
+    Table = $(function(){
+        $('#tabla').DataTable({
+            data: data,
+            columns:[
+                { data: "idSalon" },
+                { data: "nombreSalon" },
+                { data: "capacidad" },
+                { data: "ubicacion" }
+
+            ]
+        });
+    });
+    $('#tabla tbody').on('click', 'tr', function () {
+    var data = $('#tabla').DataTable().row(this).data();
+    llenarCampos(data);
+} );
 }
 
 function ConsultaPorId(){
-    let id = document.getElementById("nombreclave").value;
+    let id = document.getElementById("idsalon").value;
     let url = uri + '/'+ id;
     fetch(url)
     .then(response => response.json())
@@ -24,20 +44,23 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    console.log(data.nombreClave);
-    console.log(data.idClavemateria);
-    console.log(data.descripcion);
+    $('#idsalon').val(data.idSalon);
+    $('#nombresalon').val(data.nombreSalon);
+    $('#capacidad').val(data.capacidad);
+    $('#ubicacion').val(data.ubicacion);
     //PENDIENTE DE TERMINAR
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA AGREGAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Agregar(){
-    const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputUbicacion = document.getElementById("ubicacion").value;
+    const inputCapacidad = document.getElementById("capacidad").value;
+    const inputNombreSalon = document.getElementById("nombresalon").value;
     objClaveMateria = {
-        "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "Ubicacion": inputUbicacion,
+        "NombreClave": inputNombreSalon,
+        "Capacidad": inputCapacidad
     }
     fetch(uri,{
         method: 'POST',
@@ -54,12 +77,13 @@ function Agregar(){
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
 function Mensaje(data){
     console.log(data);
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    const inputIdClavemateria = document.getElementById("idsalon").value;
     let url = uri + "/" + inputIdClavemateria
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
@@ -69,11 +93,15 @@ function Eliminar(){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA EDITAR UN ITEM EN LA BASE DE DATOS
 function Editar(){
-    const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputIdSalon = document.getElementById("idsalon").value;
+    const inputUbicacion = document.getElementById("ubicacion").value;
+    const inputCapacidad = document.getElementById("capacidad").value;
+    const inputNombreSalon = document.getElementById("nombresalon").value;
     objClaveMateria = {
-        "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "IdSalon": inputIdSalon,
+        "Ubicacion": inputUbicacion,
+        "NombreClave": inputNombreSalon,
+        "Capacidad": inputCapacidad
     }
     fetch(uri,{
         method: 'PUT',

@@ -78,7 +78,7 @@ function Mensaje(data){
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    const inputIdClavemateria = document.getElementById("idmateria").value;
     let url = uri + "/" + inputIdClavemateria
     fetch(url,{method:'DELETE'})
     .then(response => response.text())

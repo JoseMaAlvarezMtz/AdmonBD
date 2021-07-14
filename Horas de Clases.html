@@ -2,8 +2,21 @@
 <html lang="en">
 <html>
 <head>
+<!--<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="jquery.dataTables.min.js"></script>-->
+  <link rel="stylesheet" href="https:////code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"></link>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.jqueryui.min.css"></link>
+  <link rel="stylesheet" href="https://cdn.datatables.net/scroller/2.0.2/css/scroller.jqueryui.min.css"></link>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.jqueryui.min.js"></script>
+  <script src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.min.js"></script>
+
 <meta charset="UTF-8">
     <link rel="stylesheet" href="estilo2.css">
+	<link rel="stylesheet" href="jquery.dataTables.min.css">
+	
 </head>
 
 
@@ -44,16 +57,16 @@ Cerrar Sesión
   <form>
         
     <label for="name">Id De Hora:</label>
-    <input type="text" id="name"  disabled=»disabled» />
+    <input type="text" id="idhora"  disabled=»disabled» />
         
     <label for="lastname">Nombre De Hora:</label>
-    <input type="text" id="lastname">
+    <input type="text" id="nombrehora">
     
 	 <label for="lastname">Hora De Inicio:</label>
-    <input type="text" id="lastname">
+    <input type="text" id="horainicio">
 	
 	<label for="lastname">Hora De Fin:</label>
-    <input type="text" id="lastname">
+    <input type="text" id="horafin">
 	
 	
 </form>
@@ -80,15 +93,15 @@ Eliminar
 	</center>
 	
 	<div id="materia2">
-	<table id="tabla" class="display" width="100%"></table>
+	<table id="tabla" class="display" width="100%">
 	
 	<thead>
-	<tr>
-	<th>Id De Hora</th>
-	<th>Nombre De Hora</th>
-	<th>Hora De Inicio</th>
-	<th>Hora De Fin</th>
-	</tr>
+    <tr>
+	    <th>Id De Hora</th>
+	    <th>Nombre De Hora</th>
+	    <th>Hora De Inicio</th>
+	    <th>Hora De Fin</th>
+    </tr>
 	</thead>
 	</table>
 	
@@ -101,6 +114,6 @@ Eliminar
 	
 	
 	</div>
-	
+<script languaje="javascript" src="Hora.js" ></script>
 </body>
 </html>
