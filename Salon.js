@@ -22,8 +22,8 @@ function _displayItems(data){
             columns:[
                 { data: "idSalon" },
                 { data: "nombreSalon" },
-                { data: "capacidad" },
-                { data: "ubicacion" }
+                { data: "ubicacion" },
+                { data: "capacidad" }
 
             ]
         });
