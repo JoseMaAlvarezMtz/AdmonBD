@@ -50,68 +50,120 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    console.log(data.nombreClave);
-    console.log(data.idClavemateria);
-    console.log(data.descripcion);
-    /*$('#iddistribucion').val(data.idDistribucion);
-    $('#plan').val(data.plan);
-    $('#clavemateria').val(data.clavemateria);
-    $('#materia').val(data.materia);
-    $('#grupo').val(data.grupo);
-    $('#hora').val(data.hora);
-    $('#dia').val(data.dia);
-    $('#salon').val(data.salon);
-    $('#semestre').val(data.semestrecadena);*/
-    //PENDIENTE DE TERMINAR
+    
 }
 
 function getSelects(){
     const ClaveMateria = 'https://localhost:44390/api/ClaveMateria';
     fetch(ClaveMateria)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.nombreClave;
+            option.value = d.nombreClave;
+            var select = document.querySelector(".selectClaveMateria");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Dia = 'https://localhost:44390/api/Dia';
     fetch(Dia)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.claveDia;
+            option.value = d.claveDia;
+            var select = document.querySelector(".selectDia");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Grupo = 'https://localhost:44390/api/Grupo';
     fetch(Grupo)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.numeroGrupo;
+            option.value = d.numeroGrupo;
+            var select = document.querySelector(".selectGrupo");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Hora = 'https://localhost:44390/api/Hora';
     fetch(Hora)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.nombreHora;
+            option.value = d.nombreHora;
+            var select = document.querySelector(".selectHora");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Materia = 'https://localhost:44390/api/Materia';
     fetch(Materia)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.nombreMateria;
+            option.value = d.nombreMateria;
+            var select = document.querySelector(".selectMateria");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const PlanEstudios = 'https://localhost:44390/api/PlanEstudios';
     fetch(PlanEstudios)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.clavePlan;
+            option.value = d.clavePlan;
+            var select = document.querySelector(".selectPlan");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Salon = 'https://localhost:44390/api/Salon';
     fetch(Salon)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.nombreSalon;
+            option.value = d.nombreSalon;
+            var select = document.querySelector(".selectSalon");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 
     const Semestre = 'https://localhost:44390/api/Semestre';
     fetch(Semestre)
     .then(response => response.json())
-    .then(data => {    })
+    .then(data => {  
+        data.forEach(d => {
+            var option = document.createElement("option");
+            option.text = d.descripcion;
+            option.value = d.descripcion;
+            var select = document.querySelector(".selectSemestre");
+            select.appendChild(option);
+        });
+    })
     .catch(error => console.error('Unable to get items.', error));
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
