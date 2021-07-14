@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/Distribucion';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -12,6 +16,21 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
+    Table = $(function(){
+        $('#tabla').DataTable({
+            data: data,
+            columns:[
+                { data: "idClavemateria" },
+                { data: "nombreClave" },
+                { data: "descripcion" }
+
+            ]
+        });
+    });
+    $('#tabla tbody').on('click', 'tr', function () {
+    var data = $('#tabla').DataTable().row(this).data();
+    llenarCampos(data);
+} );
 }
 
 function ConsultaPorId(){

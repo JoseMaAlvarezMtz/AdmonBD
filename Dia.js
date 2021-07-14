@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/Dia';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -12,6 +16,21 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
+    Table = $(function(){
+        $('#tabla').DataTable({
+            data: data,
+            columns:[
+                { data: "idDia" },
+                { data: "claveDia" },
+                { data: "descripcion" }
+
+            ]
+        });
+    });
+    $('#tabla tbody').on('click', 'tr', function () {
+    var data = $('#tabla').DataTable().row(this).data();
+    llenarCampos(data);
+} );
 }
 
 function ConsultaPorId(){
@@ -24,9 +43,9 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    console.log(data.nombreClave);
-    console.log(data.idClavemateria);
-    console.log(data.descripcion);
+    $('#idclavemateria').val(data.idDia);
+    $('#nombreclave').val(data.claveDia);
+    $('#descripcion').val(data.descripcion);
     //PENDIENTE DE TERMINAR
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------

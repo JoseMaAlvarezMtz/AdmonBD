@@ -76,15 +76,14 @@ function Agregar(){
 function Mensaje(data){
     alert(data);
     console.log(data);
-    getItems();
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    data = 21;
-    alert("Deseas eliminar este registro"+data);
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    alert("¿Deseas eliminar este registro?");
+    const inputIdClavemateria = document.getElementById("idclavemateria").value;
     let url = uri + "/" + inputIdClavemateria;
     fetch(url,{method:'DELETE'})
     .then(response => response.text())

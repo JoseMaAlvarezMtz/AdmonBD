@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/PlanEstudios';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -12,10 +16,25 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
+    Table = $(function(){
+        $('#tabla').DataTable({
+            data: data,
+            columns:[
+                { data: "idPlan" },
+                { data: "clavePlan" },
+                { data: "descripcion" }
+
+            ]
+        });
+    });
+    $('#tabla tbody').on('click', 'tr', function () {
+    var data = $('#tabla').DataTable().row(this).data();
+    llenarCampos(data);
+} );
 }
 
 function ConsultaPorId(){
-    let id = document.getElementById("nombreclave").value;
+    let id = document.getElementById("idplan").value;
     let url = uri + '/'+ id;
     fetch(url)
     .then(response => response.json())
@@ -24,9 +43,9 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    console.log(data.nombreClave);
-    console.log(data.idClavemateria);
-    console.log(data.descripcion);
+    $('#idplan').val(data.idPlan);
+    $('#claveplan').val(data.clavePlan);
+    $('#descripcion').val(data.descripcion);
     //PENDIENTE DE TERMINAR
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -34,10 +53,10 @@ function llenarCampos(data){
 //Pendiente modificar los ElementByID porque faltan referencias
 function Agregar(){
     const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputClavePlan = document.getElementById("claveplan").value;
     objClaveMateria = {
         "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "ClavePlan": inputClavePlan
     }
     fetch(uri,{
         method: 'POST',
@@ -54,12 +73,13 @@ function Agregar(){
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
 function Mensaje(data){
     console.log(data);
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    const inputIdClavemateria = document.getElementById("idplan").value;
     let url = uri + "/" + inputIdClavemateria
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
@@ -69,11 +89,13 @@ function Eliminar(){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA EDITAR UN ITEM EN LA BASE DE DATOS
 function Editar(){
+    const inputIdPlan = document.getElementById("idplan").value;
     const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputClavePlan = document.getElementById("claveplan").value;
     objClaveMateria = {
+        "IdPlan": inputIdPlan,
         "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "ClavePlan": inputClavePlan
     }
     fetch(uri,{
         method: 'PUT',
