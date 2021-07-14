@@ -20,9 +20,15 @@ function _displayItems(data){
         $('#tabla').DataTable({
             data: data,
             columns:[
-                { data: "idClavemateria" },
-                { data: "nombreClave" },
-                { data: "descripcion" }
+                { data: "idDistribucion" },
+                { data: "plan" },
+                { data: "clavemateria" },
+                { data: "materia" },
+                { data: "grupo" },
+                { data: "hora" },
+                { data: "dia" },
+                { data: "salon" },
+                { data: "semestrecadena" },
 
             ]
         });
