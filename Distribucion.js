@@ -50,7 +50,15 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    
+    document.querySelector(".inputDist").value = data.idDistribucion;
+    document.querySelector(".selectPlan").value = data.plan;
+    document.querySelector(".selectClaveMateria").value = data.clavemateria;
+    document.querySelector(".selectMateria").value = data.materia;
+    document.querySelector(".selectGrupo").value = data.grupo;
+    document.querySelector(".selectHora").value = data.hora;
+    document.querySelector(".selectDia").value = data.dia;
+    document.querySelector(".selectSalon").value = data.salon;
+    document.querySelector(".selectSemestre").value = data.semestrecadena;
 }
 
 function getSelects(){
