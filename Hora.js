@@ -15,6 +15,20 @@ function getItems() {
 
 function _displayItems(data){
     console.log(data);
+    data.forEach(d => {
+       if (d.horaInicio.minutes === 0) {
+        d.horaInicio.minutes = "00";
+       }
+       d.horaInicio = `${d.horaInicio.hours}:${d.horaInicio.minutes}`;  
+    });
+
+    data.forEach(d => {
+        if (d.horaFin.minutes === 0) {
+         d.horaFin.minutes = "00";
+        }
+        d.horaFin = `${d.horaFin.hours}:${d.horaFin.minutes}`;  
+     });
+    
     //PENDIENTE DE TERMINAR
     Table = $(function(){
         $('#tabla').DataTable({
