@@ -191,14 +191,14 @@ button{
 	background-color:rgba(55, 190, 120, 0.58);
 	position: absolute;
 	height: 455px;
-	width:545px;
+	width:650px;
 	left: 46.3%;
 	top: 15%;
 	margin-top: -100px;
 	margin-left: -150px;
 	 /* Centrar el formulario en la página */
   margin: 0 auto;
-  width: 600px;
+  width: 800px;
   /* Esquema del formulario */
   padding: 1em;
   border: 1px solid #CCC;
