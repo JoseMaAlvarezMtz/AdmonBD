@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/ClaveMateria';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -11,7 +15,7 @@ function getItems() {
 
 function _displayItems(data){
     console.log(data);
-    var Table = $(function(){
+    Table = $(function(){
                 $('#tabla').DataTable({
                     data: data,
                     columns:[
@@ -21,12 +25,11 @@ function _displayItems(data){
 
                     ]
                 });
-
-                $('#tabla tbody').on('click', 'tr', function () {
-                    var data = Table.api().row( this ).data();
-                    alert( 'You clicked on '+data[idClavemateria]+'\'s row' );
-                } );
     });
+    $('#tabla tbody').on('click', 'tr', function () {
+        var data = $('#tabla').DataTable().row(this).data();
+        llenarCampos(data);
+    } );
 }
 
 function ConsultaPorId(){
@@ -73,6 +76,7 @@ function Agregar(){
 function Mensaje(data){
     alert(data);
     console.log(data);
+    getItems();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
