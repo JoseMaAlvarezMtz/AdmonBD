@@ -43,8 +43,8 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    $('#idclavemateria').val(data.idDia);
-    $('#nombreclave').val(data.claveDia);
+    $('#iddia').val(data.idDia);
+    $('#clavedia').val(data.claveDia);
     $('#descripcion').val(data.descripcion);
     //PENDIENTE DE TERMINAR
 }
