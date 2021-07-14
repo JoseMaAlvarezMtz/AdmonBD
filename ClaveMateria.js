@@ -15,21 +15,7 @@ function getItems() {
 
 function _displayItems(data){
     console.log(data);
-    let html = '';
-        for (i = 0; i < data.length; i++){
-            html += '<tr>'+
-                        '<td class="tdUsername pv3 w-35 pr3 bb b--black-20">'+ data[i].descripcion + '</td>'+
-                        '<td class="tdPassword pv3 w-35 pr3 bb b--black-20">'+ data[i].nombreClave + '</td>'+
-                        '<td class="pv3 w-30 pr3 bb b--black-20">'+
-                          '<div class="btn-group" role="group" aria-label="Basic example">'+
-                            '<a class="editButton f6 grow no-underline ba bw1 ph3 pv2 mb2 dib black pointer"  data-toggle="modal">EDIT</a>'+
-                            '<a class="deleteButton f6 grow no-underline ba bw1 ph3 pv2 mb2 dib black pointer"  data-toggle="modal">DELETE</a>'+
-                          '</div>'+
-                        '</td>'+
-                    '</tr>'}
-                    $('#tabla').html(html);
-    //PENDIENTE DE TERMINAR
-    var Table = $(function(){
+    Table = $(function(){
                 $('#tabla').DataTable({
                     data: data,
                     columns:[
@@ -39,12 +25,11 @@ function _displayItems(data){
 
                     ]
                 });
-
-                $('#tabla tbody').on('click', 'tr', function () {
-                    var data = Table.api().row( this ).data();
-                    alert( 'You clicked on '+data[idClavemateria]+'\'s row' );
-                } );
     });
+    $('#tabla tbody').on('click', 'tr', function () {
+        var data = $('#tabla').DataTable().row(this).data();
+        llenarCampos(data);
+    } );
 }
 
 function ConsultaPorId(){
@@ -91,14 +76,14 @@ function Agregar(){
 function Mensaje(data){
     alert(data);
     console.log(data);
+    location.reload();
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    data = 21;
-    alert("Deseas eliminar este registro"+data);
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    alert("¿Deseas eliminar este registro?");
+    const inputIdClavemateria = document.getElementById("idclavemateria").value;
     let url = uri + "/" + inputIdClavemateria;
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
