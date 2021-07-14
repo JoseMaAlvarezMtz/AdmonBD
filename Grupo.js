@@ -2,6 +2,10 @@ const uri = 'https://localhost:44390/api/Grupo';
 
 //FUNCIONES PARA CONSULTAR INDIVIDUAL Y TODOS LOS ELEMENTOS
 //Pendiente modificar los ElementByID porque faltan referencias
+$(function(){
+    getItems();
+});
+
 function getItems() {
   fetch(uri)
     .then(response => response.json())
@@ -12,10 +16,23 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
+    Table = $(function(){
+        $('#tabla').DataTable({
+            data: data,
+            columns:[
+                { data: "idGrupo" },
+                { data: "numeroGrupo" },
+            ]
+        });
+    });
+    $('#tabla tbody').on('click', 'tr', function () {
+    var data = $('#tabla').DataTable().row(this).data();
+    llenarCampos(data);
+} );
 }
 
 function ConsultaPorId(){
-    let id = document.getElementById("nombreclave").value;
+    let id = document.getElementById("idgrupo").value;
     let url = uri + '/'+ id;
     fetch(url)
     .then(response => response.json())
@@ -24,20 +41,20 @@ function ConsultaPorId(){
 }
 
 function llenarCampos(data){
-    console.log(data.nombreClave);
-    console.log(data.idClavemateria);
-    console.log(data.descripcion);
+    $('#idgrupo').val(data.idGrupo);
+    $('#numerogrupo').val(data.numeroGrupo);
+    
     //PENDIENTE DE TERMINAR
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCIONES PARA AGREGAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Agregar(){
-    const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputIdGrupo = document.getElementById("idgrupo").value;
+    const inputNumeroGrupo = document.getElementById("numerogrupo").value;
     objClaveMateria = {
-        "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "IdGrupo": inputIdGrupo,
+        "NumeroGrupo": inputNumeroGrupo
     }
     fetch(uri,{
         method: 'POST',
@@ -48,7 +65,7 @@ function Agregar(){
     })
     .then(response => response.text())
     .then(data => Mensaje(data))
-    .catch(error => console.error('Unable to Agregar Item.',error ,objClaveMateria));
+    .catch(error => console.error('Unable to Agregar Item.',error));
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA IMPRIMIR MENSAJE DE ERROR O DE EXITO
@@ -59,7 +76,7 @@ function Mensaje(data){
 //FUNCIONES PARA ELIMINAR UN ITEM EN LA BASE DE DATOS
 //Pendiente modificar los ElementByID porque faltan referencias
 function Eliminar(){
-    const inputIdClavemateria = document.getElementById("nombreclave").value;
+    const inputIdClavemateria = document.getElementById("idgrupo").value;
     let url = uri + "/" + inputIdClavemateria
     fetch(url,{method:'DELETE'})
     .then(response => response.text())
@@ -69,11 +86,11 @@ function Eliminar(){
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //FUNCION PARA EDITAR UN ITEM EN LA BASE DE DATOS
 function Editar(){
-    const inputDescripcion = document.getElementById("descripcion").value;
-    const inputNombreClave = document.getElementById("nombreclave").value;
+    const inputIdGrupo = document.getElementById("idgrupo").value;
+    const inputNumeroGrupo = document.getElementById("numerogrupo").value;
     objClaveMateria = {
-        "Descripcion": inputDescripcion,
-        "NombreClave": inputNombreClave
+        "IdGrupo": inputIdGrupo,
+        "NumeroGrupo": inputNumeroGrupo
     }
     fetch(uri,{
         method: 'PUT',
