@@ -7,9 +7,9 @@ $(function(){
     getSelects();
 });
 
-function getItems() {
+async function getItems() {
   fetch(uri)
-    .then(response => response.json())
+    .then( response => await response.json())
     .then(data => _displayItems(data))
     .catch(error => console.error('Unable to get items.', error));
 }
@@ -17,7 +17,7 @@ function getItems() {
 function _displayItems(data){
     console.log(data);
     //PENDIENTE DE TERMINAR
-    Table = $(function(){
+    Table =  $(function(){
         $('#tabla').DataTable({
             data: data,
             columns:[
