@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <!--<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="jquery.dataTables.min.js"></script>-->
+  <link rel="stylesheet" href="https:////code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"></link>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.jqueryui.min.css"></link>
+  <link rel="stylesheet" href="https://cdn.datatables.net/scroller/2.0.2/css/scroller.jqueryui.min.css"></link>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.jqueryui.min.js"></script>
+  <script src="https://cdn.datatables.net/scroller/2.0.2/js/dataTables.scroller.min.js"></script>
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="diseño5.css">
+	<link rel="stylesheet" href="jquery.dataTables.min.css">
+	
+</head>
+
+
+
+<body>
+
+   <div id="menu">
+<center>
+
+   <ul>
+   
+   <li><a href="Distribuciones.html">Distribuciones<a/></li>
+   <li><a href="Clave%20de%20Materia.html">Clave de Materia<a/></li>
+   <li><a href="Día%20Clase.html">Días de Clase <a/></li>
+   <li><a href="Grupos.html">Grupos<a/></li>
+     <li><a href="Horas%20de%20Clases.html"> Horas Clase <a/></li>
+   <li><a href="Materias.html">Materias<a/></li>
+   <li><a href="Plan401.html">Plan de Estudio<a/></li>
+   <li><a href="Salon.html">Salones de FIME <a/></li>
+   <li><a href="Semestres.html">Semestres<a/></li>
+   </center>
+   </ul>
+   </div>
+   <form action="Iinicio2.html#">
+      <div id="boton">
+
+ <br>   <button class="button4" onclick="CerrarSesión();">
+<img src="salir.png" alt="cdlibre.org" width="20" height="20" align="left">
+Cerrar Sesión
+
+</form>
+
+</div>
+   
+   
+   
+   
+   
+   
+  <div id="materia">
+   <strong><h1> SALONES DE FIME </h1></strong>
+
+
+
+
+<form>
+        
+    <label for="name">Id De Salón:</label>
+    <input type="text" id="idsalon" disabled=»disabled» />
+        
+    <label for="lastname">Nombre Del Salón:</label>
+    <input type="text" id="nombresalon">
+    
+	 <label for="lastname">Ubicación:</label>
+    <input type="text" id="ubicacion">
+	
+	<label for="lastname">Capacidad:</label>
+    <input type="text" id="capacidad">
+</form>
+
+  
+
+  
+  
+<center>
+   <br>
+   <button class="button1">
+  <img src="agregar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
+ Agregar 
+</button>&nbsp;
+   <button class="button2">
+  <img src="guardar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
+Guardar 
+</button> &nbsp;
+   <button class="button3">
+  <img src="eliminar.png" alt="cdlibre.org" width="32" height="32" style="vertical-align: middle"><br>
+Eliminar 
+</button>
+  </div>
+	<div id="materia2">
+	<table id="tabla" class="display" width="100%">
+	
+	<thead>
+	<tr>
+	<th>Id De Salón</th>
+	<th>Nombre Del Salón</th>
+	<th>Ubicación</th>
+	<th>Capacidad</th>
+  </tr>
+	</thead>
+	</table>
+	
+	
+	
+	
+	</div>
+	</center>
+	  <script languaje="javascript" src="Salon.js"></script>
+</body>
+</html>
